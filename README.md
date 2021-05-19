@@ -29,13 +29,13 @@ void main() async {
 
 ```dart
 ...
-  MyStatelessWidget().build(null);
+  widgeto.pdf(MyStatelessWidget().build(null));
 ...
 ```
 
 ## For StatefullWidget
 ```dart
 ...
-  MyStatefulWidget().createState().build(null);
+  widgeto.pdf(MyStatefulWidget().createState().build(null));
 ...
 ```
