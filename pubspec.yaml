@@ -1,7 +1,6 @@
 name: widgeto
 description: Convert your widget to <dynamic>.
 version: 0.0.1
-author: Odilon Damasceno
 homepage: https://github.com/OdilonDamasceno/widgeto
 
 environment:
