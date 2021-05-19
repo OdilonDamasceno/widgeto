@@ -10,6 +10,11 @@ Future<Uint8List> toRawImage(Widget widget) async {
   final _properties = DiagnosticPropertiesBuilder();
   widget.debugFillProperties(_properties);
 
+  if (_properties.properties.isEmpty)
+    throw ErrorDescription(
+      "Try use ${widget.toString()}.build(context) instead",
+    );
+
   final _constraints = _properties.properties
       .whereType<DiagnosticsProperty<BoxConstraints>>()
       .first

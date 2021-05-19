@@ -25,3 +25,17 @@ void main() async {
 }
 ```
 
+## For StatelessWidget
+
+```dart
+...
+  MyStatelessWidget().build(null);
+...
+```
+
+## For StatefullWidget
+```dart
+...
+  MyStatefulWidget().createState().build(null);
+...
+```
