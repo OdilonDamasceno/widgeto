@@ -1,3 +1,7 @@
+## [0.0.4]
+
+* Add a window view configuration to renderview
+
 ## [0.0.3]
 
 * Add exception to Stateless and Stateful widgets
