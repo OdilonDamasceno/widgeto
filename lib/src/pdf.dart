@@ -24,6 +24,6 @@ Future<File> toPdf(Widget widget, {String path, String fileName}) async {
 
   Directory dir = await provider.getApplicationDocumentsDirectory();
 
-  var file = File(path ?? dir.path + "/${fileName ?? 'example'}.pdf");
+  var file = File((path ?? dir.path) + "/${fileName ?? 'example'}.pdf");
   return await file.writeAsBytes(await pdf.save());
 }
