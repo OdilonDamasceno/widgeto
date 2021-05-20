@@ -4,6 +4,8 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:ui' as ui;
 
+import 'package:widgeto/src/utils/viewWindow.dart';
+
 Future<Uint8List> toRawImage(Widget widget) async {
   assert(widget != null);
 
@@ -31,7 +33,11 @@ Future<Uint8List> toRawImage(Widget widget) async {
     configuration: ViewConfiguration(
         size: Size(_constraints.maxWidth, _constraints.maxHeight),
         devicePixelRatio: ui.window.devicePixelRatio),
-    window: null,
+    window: ViewWindow(
+      configuration: ui.ViewConfiguration(
+        devicePixelRatio: ui.window.devicePixelRatio,
+      ),
+    ),
   );
 
   final PipelineOwner _pipelineOwner = PipelineOwner()..rootNode = _renderView;
