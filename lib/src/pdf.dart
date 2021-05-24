@@ -27,3 +27,30 @@ Future<File> toPdf(Widget widget, {String path, String fileName}) async {
   var file = File((path ?? dir.path) + "/${fileName ?? 'example'}.pdf");
   return await file.writeAsBytes(await pdf.save());
 }
+
+Future<File> toMultiPagePdf(List<Widget> widgets,
+    {String path, String fileName}) async {
+  var pdf = pw.Document();
+
+  for (var widget in widgets) {
+    var image = pw.MemoryImage(
+      await toRawImage(widget),
+    );
+
+    pdf.addPage(
+      pw.Page(
+        build: (pw.Context context) {
+          return pw.Center(
+            child: pw.Image(image),
+          );
+        },
+        pageFormat: PdfPageFormat.undefined,
+      ),
+    );
+  }
+
+  Directory dir = await provider.getApplicationDocumentsDirectory();
+
+  var file = File((path ?? dir.path) + "/${fileName ?? 'example'}.pdf");
+  return await file.writeAsBytes(await pdf.save());
+}
